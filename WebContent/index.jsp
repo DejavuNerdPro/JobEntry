@@ -14,7 +14,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
@@ -90,7 +90,7 @@
                                     <h1 class="display-3 text-white animated slideInDown mb-4">Find The Perfect Job That You Deserved</h1>
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
                                     <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
-                                    <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
+                                    <a href="login.jsp" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Login</a>
                                 </div>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                                     <h1 class="display-3 text-white animated slideInDown mb-4">Find The Best Startup Job That Fit You</h1>
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
                                     <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
-                                    <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
+                                    <a href="login.jsp" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Login</a>
                                 </div>
                             </div>
                         </div>
@@ -291,7 +291,7 @@
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
                                             <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href="">Apply Now</a>
+                                            <a class="btn btn-primary" href="job-detail.jsp">Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
