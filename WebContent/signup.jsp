@@ -7,16 +7,19 @@
 <style>
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: black;
+  background-color: gray;
 }
 
 * {
   box-sizing: border-box;
 }
-
+.frame{
+margin:100px;
+padding:20px;
+}
 /* Add padding to containers */
 .container {
-  padding: 16px;
+  padding: 20px;
   background-color: white;
 }
 
@@ -70,10 +73,10 @@ a {
 </style>
 </head>
 <body>
-
+<div class="frame">
 <form action="/action_page.php">
   <div class="container">
-    <h1>Register</h1>
+    <h1 style="text-align:center;">Register</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
     <label for="username"><b>User Name</b></label>
