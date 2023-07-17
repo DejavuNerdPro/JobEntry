@@ -74,7 +74,7 @@ a {
 </head>
 <body>
 <div class="frame">
-<form action="/action_page.php">
+<form action="/JobFinder/" method="get">
   <div class="container">
     <h1 style="text-align:center;">Register</h1>
     <p>Please fill in this form to create an account.</p>
@@ -85,10 +85,10 @@ a {
     <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+    <input type="password" placeholder="Enter Password" name="password" id="psw" required>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+    <input type="password" placeholder="Repeat Password" name="repassword" id="psw-repeat" required>
     <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
