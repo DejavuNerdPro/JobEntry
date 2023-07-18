@@ -31,16 +31,5 @@
     <listener-class> org.springframework.web.context.ContextLoaderListener
     </listener-class>
   </listener> -->
-<servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>css/*.css</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>js/*.js</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>script/*.js</url-pattern>
-    </servlet-mapping>
+
 </web-app>
