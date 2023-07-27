@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,8 +11,14 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+    <spring:url value="/resources/img/favicon.ico" var="favicon" htmlEscape="true"/>
+    <spring:url value="/resources/script/animate/animate.min.css" var="animateCss" htmlEscape="true"/>
+    <spring:url value="/resources/script/owlcarousel/assets/owl.carousel.min.css" var="owl" htmlEscape="true"/>
+    <spring:url value="/resources/css/bootstrap.min.css" var="bootstrap" htmlEscape="true"/>
+    <spring:url value="/resources/css/style.css" var="style" htmlEscape="true"/>
+
     <!-- Favicon -->
-    <link href="<c:url value ="/img/favicon.ico"/>" rel="icon">
+    <link rel="icon" href="${favicon}">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,26 +26,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/scripts/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <spring:url value="https://cdnjs.cloudflare.com/ajax/scripts/font-awesome/5.10.0/css/all.min.css" var="ajaxcss" htmlEscape="true"/>
+    <link href="${ajaxcss}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!--scriptraries Stylesheet -->
-    <link href="<c:url value ="/script/animate/animate.min.css"/>" rel="stylesheet">
-    <link href="<c:url value ="/script/owlcarousel/assets/owl.carousel.min.css"/>" rel="stylesheet">
+    <link rel="stylesheet" href="${animateCss}">
+    <link rel="stylesheet" href="${owl}">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="<c:url value ="/css/bootstrap.min.css"/>" rel="stylesheet">
+    <link rel="stylesheet" href="${bootstrap}">
 
     <!-- Template Stylesheet -->
-    <link href="<c:url value ="/css/style.css"/>" rel="stylesheet">
+    <link rel="stylesheet" href="${style}">
 </head>
 
 <body>
+
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
+                <span class="sr-only">Loading...Stack Back ... Relax</span>
             </div>
         </div>
         <!-- Spinner End -->
@@ -72,17 +82,17 @@
                     </div>
                     <a href="contact.jsp" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
+
             </div>
         </nav>
         <!-- Navbar End -->
-
 
         <!-- Carousel Start -->
         <div class="container-fluid p-0">
             <div class="owl-carousel header-carousel position-relative">
                 <div class="owl-carousel-item position-relative">
-                    <img class="img-fluid" src="img/carousel-1.jpg" alt="">
+                <spring:url value="/resources/img/carousel-1.jpg" var="carousel" htmlEscape="true"/>
+                    <img class="img-fluid" src="${carousel}" alt="">
                     <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(43, 57, 64, .5);">
                         <div class="container">
                             <div class="row justify-content-start">
@@ -90,14 +100,17 @@
                                     <h1 class="display-3 text-white animated slideInDown mb-4">Find The Perfect Job That You Deserved</h1>
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
                                     <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
+                                    <%-- <c:if test="not session.login"> --%>
                                     <a href="login.jsp" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Login</a>
+                                    <%-- </c:if> --%>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="owl-carousel-item position-relative">
-                    <img class="img-fluid" src="img/carousel-2.jpg" alt="">
+                <spring:url value="/resources/img/carousel-2.jpg" var="carousel2" htmlEscape="true"/>
+                    <img class="img-fluid" src="${carousel2}" alt="">
                     <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(43, 57, 64, .5);">
                         <div class="container">
                             <div class="row justify-content-start">
@@ -105,7 +118,9 @@
                                     <h1 class="display-3 text-white animated slideInDown mb-4">Find The Best Startup Job That Fit You</h1>
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
                                     <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
+                                    <%-- <c:if test="session.login"> --%>
                                     <a href="login.jsp" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Login</a>
+                                    <%-- </c:if> --%>
                                 </div>
                             </div>
                         </div>
@@ -218,6 +233,10 @@
         </div>
         <!-- Category End -->
 
+<spring:url value="/resources/img/about-1.jpg" var="about1" htmlEscape="true"/>
+<spring:url value="/resources/img/about-2.jpg" var="about2" htmlEscape="true"/>
+<spring:url value="/resources/img/about-3.jpg" var="about3" htmlEscape="true"/>
+<spring:url value="/resources/img/about-4.jpg" var="about4" htmlEscape="true"/>
 
         <!-- About Start -->
         <div class="container-xxl py-5">
@@ -226,16 +245,16 @@
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                         <div class="row g-0 about-bg rounded overflow-hidden">
                             <div class="col-6 text-start">
-                                <img class="img-fluid w-100" src="img/about-1.jpg">
+                                <img class="img-fluid w-100" src="${about1}">
                             </div>
                             <div class="col-6 text-start">
-                                <img class="img-fluid" src="img/about-2.jpg" style="width: 85%; margin-top: 15%;">
+                                <img class="img-fluid" src="${about2}" style="width: 85%; margin-top: 15%;">
                             </div>
                             <div class="col-6 text-end">
-                                <img class="img-fluid" src="img/about-3.jpg" style="width: 85%;">
+                                <img class="img-fluid" src="${about3}" style="width: 85%;">
                             </div>
                             <div class="col-6 text-end">
-                                <img class="img-fluid w-100" src="img/about-4.jpg">
+                                <img class="img-fluid w-100" src="${about4}">
                             </div>
                         </div>
                     </div>
@@ -280,7 +299,8 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt="" style="width: 80px; height: 80px;">
+                                    <spring:url value="/resources/img/com-logo-1.jpg" var="com1" htmlEscape="true"/>
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="${com1}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Software Engineer</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
@@ -300,7 +320,8 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-2.jpg" alt="" style="width: 80px; height: 80px;">
+                                    <spring:url value="/resources/img/com-logo-2.jpg" var="com2" htmlEscape="true"/>
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="${com2}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Marketing Manager</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
@@ -320,7 +341,8 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-3.jpg" alt="" style="width: 80px; height: 80px;">
+                                    <spring:url value="/resources/img/com-logo-3.jpg" var="com3" htmlEscape="true"/>
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="${com3}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Product Designer</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
@@ -340,7 +362,8 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-4.jpg" alt="" style="width: 80px; height: 80px;">
+                                    <spring:url value="/resources/img/com-logo-4.jpg" var="com4" htmlEscape="true"/>
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="${com4}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Creative Director</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
@@ -360,7 +383,8 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-5.jpg" alt="" style="width: 80px; height: 80px;">
+                                    <spring:url value="/resources/img/com-logo-5.jpg" var="com5" htmlEscape="true"/>
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="${com5}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Wordpress Developer</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
@@ -383,7 +407,7 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="${com1}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Software Engineer</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
@@ -403,7 +427,8 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-2.jpg" alt="" style="width: 80px; height: 80px;">
+                                    <spring:url value="/resources/img/com-logo-2.jpg" var="com1"/>
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="${com2}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Marketing Manager</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
@@ -423,7 +448,7 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-3.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="${com3}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Product Designer</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
@@ -443,7 +468,7 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-4.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="${com4}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Creative Director</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
@@ -463,7 +488,7 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-5.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="${com5}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Wordpress Developer</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
@@ -486,7 +511,7 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="${com1}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Software Engineer</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
@@ -506,7 +531,7 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-2.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="${com2}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Marketing Manager</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
@@ -526,7 +551,7 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-3.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="${com3}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Product Designer</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
@@ -546,7 +571,7 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-4.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="${com4}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Creative Director</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
@@ -566,7 +591,7 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-5.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="${com5}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">Wordpress Developer</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
@@ -590,7 +615,10 @@
             </div>
         </div>
         <!-- Jobs End -->
-
+<spring:url value="/resources/img/testimonial-1.jpg" var="testimonial1" htmlEscape="true"/>
+<spring:url value="/resources/img/testimonial-2.jpg" var="testimonial2" htmlEscape="true"/>
+<spring:url value="/resources/img/testimonial-3.jpg" var="testimonial3" htmlEscape="true"/>
+<spring:url value="/resources/img/testimonial-4.jpg" var="testimonial4" htmlEscape="true"/>
 
         <!-- Testimonial Start -->
         <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -601,7 +629,7 @@
                         <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
                         <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-1.jpg" style="width: 50px; height: 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded" src="${testimonial1}" style="width: 50px; height: 50px;">
                             <div class="ps-3">
                                 <h5 class="mb-1">Client Name</h5>
                                 <small>Profession</small>
@@ -612,7 +640,7 @@
                         <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
                         <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-2.jpg" style="width: 50px; height: 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded" src="${testimonial2}" style="width: 50px; height: 50px;">
                             <div class="ps-3">
                                 <h5 class="mb-1">Client Name</h5>
                                 <small>Profession</small>
@@ -623,7 +651,7 @@
                         <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
                         <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-3.jpg" style="width: 50px; height: 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded" src="${testimonial3}" style="width: 50px; height: 50px;">
                             <div class="ps-3">
                                 <h5 class="mb-1">Client Name</h5>
                                 <small>Profession</small>
@@ -634,7 +662,7 @@
                         <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
                         <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-4.jpg" style="width: 50px; height: 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded" src="${testimonial4}" style="width: 50px; height: 50px;">
                             <div class="ps-3">
                                 <h5 class="mb-1">Client Name</h5>
                                 <small>Profession</small>
@@ -716,16 +744,21 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
+<spring:url value="/resources/script/wow/wow.min.js" var="wow" htmlEscape="true"/>
+<spring:url value="/resources/script/easing/easing.min.js" var="easing" htmlEscape="true"/>
+<spring:url value="/resources/script/waypoints/waypoints.min.js" var="waypoints" htmlEscape="true"/>
+<spring:url value="/resources/script/owlcarousel/owl.carousel.min.js" var="carouseljs" htmlEscape="true"/>
 
     <!-- JavaScript scriptraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="<%=request.getContextPath()%>/script/wow/wow.min.js"></script>
-    <script src="script/easing/easing.min.js"></script>
-    <script src="script/waypoints/waypoints.min.js"></script>
-    <script src="script/owlcarousel/owl.carousel.min.js"></script>
+    <script src="${wow}"></script>
+    <script src="${easing}"></script>
+    <script src="${waypoints}"></script>
+    <script src="${carouseljs}"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <spring:url value="/resources/js/main.js" var="main" htmlEscape="true"/>
+    <script src="${main}"></script>
 </body>
 </html>

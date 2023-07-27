@@ -5,7 +5,6 @@ import java.sql.Timestamp;
 public class Job {
 String jobId;
 String title;
-Byte[] logo;
 String location;
 String type;
 Double salary;
@@ -13,6 +12,13 @@ String description;
 String responsibility;
 String qualification;
 Integer vacancy;
+String company;
+public String getCompany() {
+	return company;
+}
+public void setCompany(String company) {
+	this.company = company;
+}
 Timestamp dateLine;
 
 public String getJobId() {
@@ -27,12 +33,7 @@ public String getTitle() {
 public void setTitle(String title) {
 	this.title = title;
 }
-public Byte[] getLogo() {
-	return logo;
-}
-public void setLogo(Byte[] logo) {
-	this.logo = logo;
-}
+
 public String getLocation() {
 	return location;
 }

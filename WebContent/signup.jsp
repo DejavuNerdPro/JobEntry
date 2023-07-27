@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+    <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -74,21 +76,22 @@ a {
 </head>
 <body>
 <div class="frame">
-<form action="/JobFinder/" method="get">
+<form action="/JobFinder/registration" method="get">
   <div class="container">
     <h1 style="text-align:center;">Register</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
     <label for="username"><b>User Name</b></label>
-    <input type="text" placeholder="Enter Name" name="username" id="username" required>
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+    <input type="text" name="username" placeholder="Enter user name" id="username"/>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" id="psw" required>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" id="email"/>
+
+    <label for="psw"><b>Password</b></label><br/><small style="color:red;">${sessionScope.passwordLengthFailed}</small>
+    <input type="password" placeholder="Enter Password" name="password" id="psw"/>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="repassword" id="psw-repeat" required>
+    <input type="password" placeholder="Repeat Password" name="repassword" id="psw-repeat"/><br/><small style="color:red;">${sessionScope.wrongPassword}</small>
     <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
@@ -99,6 +102,6 @@ a {
     <p>Already have an account? <a href="login.jsp">Sign in</a>.</p>
   </div>
 </form>
-
+</div>
 </body>
 </html>

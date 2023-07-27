@@ -39,36 +39,10 @@
 
     <!-- Template Stylesheet -->
     <link rel="stylesheet" href="${style}">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    </head>
 <style>
 
-    .styled-table thead tr {
-        background-color: #009879;
-        color: #ffffff;
-        text-align: left;
-    }
-
-    .styled-table th,
-    .style-table td {
-        padding: 12px 15px;
-        text-align: center;
-    }
-
-    .styled-table tbody tr {
-        border-bottom: 1px solid #dddddd;
-    }
-
-    .styled-table tbody tr:nth-of-type(even){
-        background-color: #f3f3f3;
-    }
-
-    .styled-table tbody tr: last-of-type{
-        border-bottom: 2px solid #009879;
-    }
-
-    .styled-table tbody tr.active-row {
-        font-weight: bold;
-        color: #009879;
-    }
 .modaljob { /* Hidden by default */
 display:none;
   position: fixed; /* Stay in place */
@@ -141,8 +115,94 @@ display:none;
 .containerjob {
   padding: 16px;
 }
+    .styled-table {
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin: auto;
+    font-size: 1.3sem;
+    font-family: sans-serif;
+    min-width: 900px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+.panel-footer{
+position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+}
+
+    .styled-table {
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin: auto;
+    font-size: 1.3sem;
+    font-family: sans-serif;
+    min-width: 1000px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .styled-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    .styled-table th,
+    .style-table td {
+        padding: 15px 20px;
+        text-align: center;
+    }
+
+    .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .styled-table tbody tr:nth-of-type(even){
+        background-color: #f3f3f3;
+    }
+
+    .styled-table tbody tr:last-of-type{
+        border-bottom: 2px solid #009879;
+    }
+
+    .styled-table tbody tr.active-row {
+        text-align: center;
+        font-weight: bold;
+        color: #009879;
+    }
+
+    .btn {
+
+        border: none;
+        color: #009879;
+        padding: 12px 30px;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    .botton {
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .botton1 {
+        background-color: green;
+    }/* Green */
+
+    .botton2 {
+        background-color: blue;
+    }/* Blue */
+
+
 </style>
-</head>
 <body>
 <script>
 // Get the modal
@@ -154,6 +214,10 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+$(document).ready(function(){
+	$.get('loadJobData');
+	console.log("loadJobData");
+});
 </script>
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
@@ -167,16 +231,15 @@ window.onclick = function(event) {
 
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-            <a href="index.jsp" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
-                <h1 class="m-0 text-primary">JobEntry</h1>
+            <a href="adminHome.jsp" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+                <h1 class="m-0 text-primary">Admin</h1>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="home.jsp" class="nav-item nav-link">Home</a>
-                    <a href="about.jsp" class="nav-item nav-link">About</a>
+                    <a href="adminHome.jsp" class="nav-item nav-link">Home</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Jobs</a>
                         <div class="dropdown-menu rounded-0 m-0">
@@ -186,7 +249,7 @@ window.onclick = function(event) {
                         </div>
                     </div>
 
-                    <a href="contact.jsp" class="nav-item nav-link">Contact</a>
+                    <a href="adminHome.jsp" class="nav-item nav-link">Jok Seekers</a>
                 </div>
                 <button class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block" onclick="document.getElementById('id01').style.display='block'">Post A Job</button><i class="fa fa-arrow-right ms-3"></i>
             </div>
@@ -197,39 +260,50 @@ window.onclick = function(event) {
 
   <form class="modal-content-job animatejob" action="/JobFinder/postJob" method="get">
     <div class="imgcontainerjob">
-      <span onclick="document.getElementById('id01').style.display='none'" class="closejob" title="Close Modal"><a href="index.jsp" style="text-decoration:none;color:red">&times;</a></span>
-      <center><h2>Login</h2></center>
+      <span onclick="document.getElementById('id01').style.display='none'" class="closejob" title="Close Modal"><a href="remove-update-job.jsp" style="text-decoration:none;color:red">&times;</a></span>
+      <center><h2>Post A Job</h2></center>
     </div>
-
     <div class="containerjob">
-                <h1>Create a job </h1>
                 <p>Please fill in this form to create a job</p>
                 <hr>
-                <label for="jobname"><b>Job Position</b></label>
-                <input type="text" placeholder="Enter job position" name="jobname" id="jobname" required>
+                <div class="row"><div class="col-md-3"></div><div class="col-md-6">
+                <table cellspacing="20">
+                <tr>
+                <td><label for="jobname"><b>Job Position</b></label></td>
+                <td><input type="text" placeholder="Enter job position" name="position" id="jobname" required></td>
+                </tr>
+                <tr>
+                <td><label for="jobdescription"><b>Job Description</b></label></td>
+                <td><input type="text" placeholder="Enter a job Description" name="description" id="jobdescription" required></td>
+                </tr>
+                <tr>
+                <td><label for="jobtype"><b>Job Type</b></label></td>
+                <td><input type="text" placeholder="Enter a job Type" name="type" id="jobtype" required></td>
+                </tr>
+                <tr>
+                <td><label for="salary"><b>Salary</b></label></td>
+                <td><input type="text" placeholder="Enter Salary" name="salary" id="salary" required><br/></td>
+                </tr>
+                <tr>
+                <td><label for="jobqualification"><b>Job Qualification</b></label></td>
+                <td><input type="text" placeholder="Enter a job Qualification" name="qualification" id="jobqualification" required></td>
+                </tr>
+                <tr>
+                <td><label for="jobresponsibility"><b>Job Responsibility</b></label></td>
+                <td><input type="text" placeholder="Enter a job Responsibility" name="responsibility" id="jobresponsibility" required><br/></td>
+                </tr>
+                <tr>
+                <td><label for="address"><b>Address</b></label></td>
+                <td><input type="text" placeholder="Enter a job location" name="address" id="address" required></td>
+                </tr>
+                <tr>
+                <td><label for="companydetails"><b>Company Details</b></label></td>
+                <td><input type="text" placeholder="Enter company Details" name="companydetails" id="companydetails" required></td>
+                </tr>
+                </table>
+                <center><button class="btn btn-sm btn-primary" type="submit" class="registerbtn">Post</button></center>
+                </div></div><div class="col-md-3"></div>
 
-                <label for="jobdescription"><b>Job Description</b></label>
-                <input type="text" placeholder="Enter a job Description" name="jobdescription" id="jobdescription" required>
-
-                <label for="jobtype"><b>Job Type</b></label>
-                <input type="text" placeholder="Enter a job Type" name="jobdescription" id="jobtype" required>
-
-                <label for="salary"><b>Salary</b></label>
-                <input type="text" placeholder="Enter Salary" name="salary" id="salary" required>
-
-                <label for="jobqualification"><b>Job Qualification</b></label>
-                <input type="text" placeholder="Enter a job Qualification" name="jobqualification" id="jobqualification" required>
-
-                <label for="jobresponsibility"><b>Job Responsibility</b></label>
-                <input type="text" placeholder="Enter a job Responsibility" name="jobresponsibility" id="jobresponsibility" required>
-
-                <label for="address"><b>Address</b></label>
-                <input type="text" placeholder="Enter a job location" name="address" id="address" required>
-
-                <label for="companydetails"><b>Company Details</b></label>
-                <input type="text" placeholder="Enter company Details" name="companydetails" id="companydetails" required>
-
-                <button type="submit" class="registerbtn" onclick="myFunction()">Update</button>
                 <script>
                     function myFunction(){
                     	var modal = document.getElementById('id01');
@@ -238,35 +312,77 @@ window.onclick = function(event) {
                     }
                 </script>
             </div>
-  </form>
+</form>
 </div>
 <!-- End of Post A Job Model -->
         <!-- -->
+
              <table class="styled-table">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
-                        <th>Mail</th>
-                        <th>Position</th>
-                        <th>File</th>
+                        <th>Job Name</th>
+                        <th>Job Description</th>
+                        <th>Job Type</th>
+                        <th>Salary</th>
+                        <th>Company Detail</th>
+                        <th></th>
+                        <th></th>
 
                     </tr>
                 </thead>
 
                 <tbody>
+                <c:set var="counter" value="1"/>
+                <c:forEach items="${sessionScope.jobList}" var="job" varStatus="status">
                     <tr class="active-row">
-                        <td>1</td>
-                        <td>Dom</td>
-                        <td>dom@gmail.com</td>
-                        <td>Software Enginer</td>
+                        <td>${status.index+1}</td>
+                        <td>${job.title}</td>
+                        <td>${job.description}</td>
+                        <td>${job.type}</td>
+                        <td>${job.salary} Kyats</td>
+                        <td>${job.company}</td>
+                        <td>
+<%--     <c:url value="post-job.jsp" var="jobUrl">
+        <c:param name="id" value="${job.jobId}" />
+        <c:param name="position" value="${job.title}" />
+        <c:param name="description" value="${job.description}" />
+        <c:param name="type" value="${job.type}" />
+        <c:param name="salary" value="${job.salary}" />
+        <c:param name="qualification" value="${job.qualification}" />
+        <c:param name="responsibility" value="${job.responsibility}" />
+        <c:param name="address" value="${job.address}" />
+        <c:param name="companydetails" value="${job.company}" />
+    </c:url>
+
+    <a href="${jobUrl}" class="nav-item nav-link">Update</a> --%>
+
+<%-- <spring:url value="post-job.jsp?id=${job.jobId}&position=${job.title}&description=${job.description}&type=${job.type}&salary=${job.salary}&qualification=${job.qualification}&responsibility=${job.responsibility}&address=${job.address}&companydetails=${job.company}" var="updateData" htmlEscape="true"/> --%>
+<spring:url value="post-job.jsp" var="updateData">
+<spring:param name="jobId" value="${job.jobId}" />
+<spring:param name="position" value="${job.title}" />
+<spring:param name="description" value="${job.description}" />
+<spring:param name="type" value="${job.type}" />
+<spring:param name="salary" value="${job.salary}" />
+<spring:param name="qualification" value="${job.qualification}" />
+<spring:param name="responsibility" value="${job.responsibility}" />
+<spring:param name="address" value="${job.location}" />
+<spring:param name="companydetails" value="${job.company}" />
+</spring:url>
+                           <a href="${updateData}" class="nav-item nav-link">Update</a>
+                        </td>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/removeJob?jobId=${job.jobId}" class="nav-item nav-link" id="delete">Delete</a>
+                        </td>
                     </tr>
+                    </c:forEach>
                 </tbody>
 
             </table>
         <!-- -->
 
         <!-- Footer Start -->
+        <div class="panel-footer">
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
@@ -301,7 +417,7 @@ window.onclick = function(event) {
 
                 </div>
             </div>
-
+            </div>
         <!-- Footer End -->
 
 
@@ -325,5 +441,6 @@ window.onclick = function(event) {
     <!-- Template Javascript -->
     <spring:url value="/resources/js/main.js" var="main" htmlEscape="true"/>
     <script src="${main}"></script>
+</body>
 </body>
 </html>

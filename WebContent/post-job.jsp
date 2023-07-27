@@ -39,122 +39,74 @@
 
     <!-- Template Stylesheet -->
     <link rel="stylesheet" href="${style}">
-<style>
-
-    .styled-table thead tr {
-        background-color: #009879;
-        color: #ffffff;
-        text-align: left;
+    <style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: white;
     }
 
-    .styled-table th,
-    .style-table td {
-        padding: 12px 15px;
+    *{
+        box-sizing: border-box;
+    }
+
+    /* Add padding to containers */
+    .container{
+        padding: 0pax;
+        background-color: ;
+    }
+
+    /* Full-width input fileds */
+    input[type=text] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+    }
+
+    input[type=text]:focus,
+    input[type=password]:focus{
+        background-color: #ddd;
+        outline: none;
+    }
+
+    /* Overwrite default styles of hr */
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+
+    /* Set a style for the submit button */
+    .registerbtn {
+        background-color: #04AA6D;
+        color: white;
+        padding: 16px 20px;
+        margin: 6px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+
+    .registerbtn:hover {
+        opacity: 1;
+    }
+
+    /* Add a blue text color to links */
+    a {
+        color: dodgerblue;
+    }
+
+/* */
+    .create {
+        background-color: #f1f1f1;
         text-align: center;
-    }
+           }
 
-    .styled-table tbody tr {
-        border-bottom: 1px solid #dddddd;
-    }
-
-    .styled-table tbody tr:nth-of-type(even){
-        background-color: #f3f3f3;
-    }
-
-    .styled-table tbody tr: last-of-type{
-        border-bottom: 2px solid #009879;
-    }
-
-    .styled-table tbody tr.active-row {
-        font-weight: bold;
-        color: #009879;
-    }
-.modaljob { /* Hidden by default */
-display:none;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 60px;
-}
-
-/* Modal Content/Box */
-.modal-content-job {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button (x) */
-.closejob {
-  position: absolute;
-  right: 25px;
-  top: 0;
-  color: #000;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.closejob:hover,
-.closejob:focus {
-  color: red;
-  cursor: pointer;
-}
-.imgcontainerjob {
-  text-align: center;
-  margin: 24px 0 12px 0;
-  position: relative;
-}
-
-/* Add Zoom Animation */
-.animatejob {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)}
-  to {-webkit-transform: scale(1)}
-}
-
-@keyframes animatezoom {
-  from {transform: scale(0)}
-  to {transform: scale(1)}
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-}
-.containerjob {
-  padding: 16px;
-}
-</style>
+    </style>
 </head>
 <body>
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -167,106 +119,104 @@ window.onclick = function(event) {
 
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-            <a href="index.jsp" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
-                <h1 class="m-0 text-primary">JobEntry</h1>
+            <a href="adminHome.jsp" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+                <h1 class="m-0 text-primary">Admin</h1>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="home.jsp" class="nav-item nav-link">Home</a>
-                    <a href="about.jsp" class="nav-item nav-link">About</a>
+                    <a href="adminHome.jsp" class="nav-item nav-link">Home</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Jobs</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="job-list.jsp" class="dropdown-item">Job List</a>
-                            <a href="job-detail.jsp" class="dropdown-item">Job Detail</a>
+                            <a href="joblist.jsp" class="dropdown-item">Job List</a>
+                            <a href="jobdetail.jsp" class="dropdown-item">Job Detail</a>
                             <a href="category.jsp" class="dropdown-item">Job Category</a>
                         </div>
                     </div>
 
-                    <a href="contact.jsp" class="nav-item nav-link">Contact</a>
+                    <a href="remove-update-job.jsp" class="nav-item nav-link">Remove | Update Jobs</a>
                 </div>
-                <button class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block" onclick="document.getElementById('id01').style.display='block'">Post A Job</button><i class="fa fa-arrow-right ms-3"></i>
+                <a href="adminHome.jsp" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Job Seeker<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
         </nav>
         <!-- Navbar End -->
-<!-- Post A Job Model -->
-<div id="id01" class="modaljob">
 
-  <form class="modal-content-job animatejob" action="/JobFinder/postJob" method="get">
-    <div class="imgcontainerjob">
-      <span onclick="document.getElementById('id01').style.display='none'" class="closejob" title="Close Modal"><a href="index.jsp" style="text-decoration:none;color:red">&times;</a></span>
-      <center><h2>Login</h2></center>
-    </div>
 
-    <div class="containerjob">
-                <h1>Create a job </h1>
+        <!-- Create a job Start -->
+        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="container">
+                <div class="row gy-5 gx-4">
+                    <div class="col-lg-8">
+                        <div class="d-flex align-items-center mb-5">
+
+        <form action="/JobFinder/updateJob" method="get">
+            <div class="container">
+                <h1>Update a job </h1>
                 <p>Please fill in this form to create a job</p>
                 <hr>
-                <label for="jobname"><b>Job Position</b></label>
-                <input type="text" placeholder="Enter job position" name="jobname" id="jobname" required>
-
-                <label for="jobdescription"><b>Job Description</b></label>
-                <input type="text" placeholder="Enter a job Description" name="jobdescription" id="jobdescription" required>
-
-                <label for="jobtype"><b>Job Type</b></label>
-                <input type="text" placeholder="Enter a job Type" name="jobdescription" id="jobtype" required>
-
-                <label for="salary"><b>Salary</b></label>
-                <input type="text" placeholder="Enter Salary" name="salary" id="salary" required>
-
-                <label for="jobqualification"><b>Job Qualification</b></label>
-                <input type="text" placeholder="Enter a job Qualification" name="jobqualification" id="jobqualification" required>
-
-                <label for="jobresponsibility"><b>Job Responsibility</b></label>
-                <input type="text" placeholder="Enter a job Responsibility" name="jobresponsibility" id="jobresponsibility" required>
-
-                <label for="address"><b>Address</b></label>
-                <input type="text" placeholder="Enter a job location" name="address" id="address" required>
-
-                <label for="companydetails"><b>Company Details</b></label>
-                <input type="text" placeholder="Enter company Details" name="companydetails" id="companydetails" required>
-
-                <button type="submit" class="registerbtn" onclick="myFunction()">Update</button>
+                <div class="row"><div class="col-md-3"></div><div class="col-md-6">
+                <table cellspacing="20">
+                <tr>
+                <td><label for="jobname"><b>Job ID</b></label></td>
+                <td><input type="text" placeholder="Enter job position" name="jobId" id="jobname" required value="${param.jobId}"></td>
+                </tr>
+                <tr>
+                <td><label for="jobname"><b>Job Position</b></label></td>
+                <td><input type="text" placeholder="Enter job position" name="title" id="jobname" required value="${param.position}"></td>
+                </tr>
+                <tr>
+                <td><label for="jobdescription"><b>Job Description</b></label></td>
+                <td><input type="text" placeholder="Enter a job Description" name="description" id="jobdescription" required value="${param.description}"></td>
+                </tr>
+                <tr>
+                <td><label for="jobtype"><b>Job Type</b></label></td>
+                <td><input type="text" placeholder="Enter a job Type" name="type" id="jobtype" required value="${param.type}"></td>
+                </tr>
+                <tr>
+                <td><label for="salary"><b>Salary</b></label></td>
+                <td><input type="text" placeholder="Enter Salary" name="salary" id="salary" required value="${param.salary}" ><br/></td>
+                </tr>
+                <tr>
+                <td><label for="jobqualification"><b>Job Qualification</b></label></td>
+                <td><input type="text" placeholder="Enter a job Qualification" name="qualification" id="jobqualification" required value="${param.qualification}"></td>
+                </tr>
+                <tr>
+                <td><label for="jobresponsibility"><b>Job Responsibility</b></label></td>
+                <td><input type="text" placeholder="Enter a job Responsibility" name="responsibility" id="jobresponsibility" required value="${param.responsibility}"><br/></td>
+                </tr>
+                <tr>
+                <td><label for="address"><b>Address</b></label></td>
+                <td><input type="text" placeholder="Enter a job location" name="location" id="address" required value="${param.address}"></td>
+                </tr>
+                <tr>
+                <td><label for="companydetails"><b>Company Details</b></label></td>
+                <td><input type="text" placeholder="Enter company Details" name="company" id="companydetails" required value="${param.companydetails}"></td>
+                </tr>
+                </table>
+                <center><button class="btn btn-sm btn-primary" type="submit" class="registerbtn">Post</button></center>
+                </div></div><div class="col-md-3"></div>
                 <script>
                     function myFunction(){
-                    	var modal = document.getElementById('id01');
-                    	model.style.display="none";
-                        alert("Update Successful !!");
+                        alert("Update Successful !!")
                     }
                 </script>
+
+
             </div>
-  </form>
+        </form>
+    </div>
 </div>
-<!-- End of Post A Job Model -->
-        <!-- -->
-             <table class="styled-table">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Name</th>
-                        <th>Mail</th>
-                        <th>Position</th>
-                        <th>File</th>
+</div>
+</div>
+</div>
 
-                    </tr>
-                </thead>
+        <!-- Create a job End -->
 
-                <tbody>
-                    <tr class="active-row">
-                        <td>1</td>
-                        <td>Dom</td>
-                        <td>dom@gmail.com</td>
-                        <td>Software Enginer</td>
-                    </tr>
-                </tbody>
 
-            </table>
-        <!-- -->
-
-        <!-- Footer Start -->
+<!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">

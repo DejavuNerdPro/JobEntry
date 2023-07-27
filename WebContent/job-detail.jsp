@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,27 +11,34 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+    <spring:url value="/resources/img/favicon.ico" var="favicon" htmlEscape="true"/>
+    <spring:url value="/resources/script/animate/animate.min.css" var="animateCss" htmlEscape="true"/>
+    <spring:url value="/resources/script/owlcarousel/assets/owl.carousel.min.css" var="owl" htmlEscape="true"/>
+    <spring:url value="/resources/css/bootstrap.min.css" var="bootstrap" htmlEscape="true"/>
+    <spring:url value="/resources/css/style.css" var="style" htmlEscape="true"/>
+
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link rel="icon" href="${favicon}">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <spring:url value="https://cdnjs.cloudflare.com/ajax/scripts/font-awesome/5.10.0/css/all.min.css" var="ajaxcss" htmlEscape="true"/>
+    <link href="${ajaxcss}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <!--scriptraries Stylesheet -->
+    <link rel="stylesheet" href="${animateCss}">
+    <link rel="stylesheet" href="${owl}">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${bootstrap}">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="${style}">
 </head>
 
 <body>
@@ -67,7 +76,6 @@
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="category.jsp" class="dropdown-item">Job Category</a>
                             <a href="testimonial.jsp" class="dropdown-item">Testimonial</a>
-                            <a href="404.jsp" class="dropdown-item">404</a>
                         </div>
                     </div>
                     <a href="contact.jsp" class="nav-item nav-link">Contact</a>
@@ -100,53 +108,53 @@
                 <div class="row gy-5 gx-4">
                     <div class="col-lg-8">
                         <div class="d-flex align-items-center mb-5">
-                            <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-2.jpg" alt="" style="width: 80px; height: 80px;">
+                        <spring:url value="/resources/img/com-logo-1.jpg" var="com1"/>
+                            <img class="flex-shrink-0 img-fluid border rounded" src="${com1}" alt="" style="width: 80px; height: 80px;">
                             <div class="text-start ps-4">
-                                <h3 class="mb-3">Marketing Manager</h3>
-                                <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
-                                <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                <h3 class="mb-3">${param.title}</h3>
+                                <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>${param.location}</span>
+                                <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>${param.type}</span>
+                                <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>${param.salary} Kyats</span>
                             </div>
                         </div>
 
                         <div class="mb-5">
                             <h4 class="mb-3">Job description</h4>
-                            <p>Dolor justo tempor duo ipsum accusam rebum gubergren erat. Elitr stet dolor vero clita labore gubergren. Kasd sed ipsum elitr clita rebum ut sea diam tempor. Sadipscing nonumy vero labore invidunt dolor sed, eirmod dolore amet aliquyam consetetur lorem, amet elitr clita et sed consetetur dolore accusam. Vero kasd nonumy justo rebum stet. Ipsum amet sed lorem sea magna. Rebum vero dolores dolores elitr vero dolores magna, stet sea sadipscing stet et. Est voluptua et sanctus at sanctus erat vero sed sed, amet duo no diam clita rebum duo, accusam tempor takimata clita stet nonumy rebum est invidunt stet, dolor.</p>
+                            <p>${param.description}</p>
                             <h4 class="mb-3">Responsibility</h4>
-                            <p>Magna et elitr diam sed lorem. Diam diam stet erat no est est. Accusam sed lorem stet voluptua sit sit at stet consetetur, takimata at diam kasd gubergren elitr dolor</p>
+                            <p>${param.responsibility}</p>
                             <ul class="list-unstyled">
-                                <li><i class="fa fa-angle-right text-primary me-2"></i>Dolor justo tempor duo ipsum accusam</li>
-                                <li><i class="fa fa-angle-right text-primary me-2"></i>Elitr stet dolor vero clita labore gubergren</li>
-                                <li><i class="fa fa-angle-right text-primary me-2"></i>Rebum vero dolores dolores elitr</li>
-                                <li><i class="fa fa-angle-right text-primary me-2"></i>Est voluptua et sanctus at sanctus erat</li>
-                                <li><i class="fa fa-angle-right text-primary me-2"></i>Diam diam stet erat no est est</li>
+                                <li><i class="fa fa-angle-right text-primary me-2"></i>must be at least 2 year experiences</li>
+                                <li><i class="fa fa-angle-right text-primary me-2"></i>must know the SDCL</li>
+                                <li><i class="fa fa-angle-right text-primary me-2"></i>familier with computer knowledge</li>
+                                <li><i class="fa fa-angle-right text-primary me-2"></i>good in team work</li>
+                                <li><i class="fa fa-angle-right text-primary me-2"></i>good English</li>
                             </ul>
                             <h4 class="mb-3">Qualifications</h4>
-                            <p>Magna et elitr diam sed lorem. Diam diam stet erat no est est. Accusam sed lorem stet voluptua sit sit at stet consetetur, takimata at diam kasd gubergren elitr dolor</p>
-                            <ul class="list-unstyled">
-                                <li><i class="fa fa-angle-right text-primary me-2"></i>Dolor justo tempor duo ipsum accusam</li>
-                                <li><i class="fa fa-angle-right text-primary me-2"></i>Elitr stet dolor vero clita labore gubergren</li>
-                                <li><i class="fa fa-angle-right text-primary me-2"></i>Rebum vero dolores dolores elitr</li>
-                                <li><i class="fa fa-angle-right text-primary me-2"></i>Est voluptua et sanctus at sanctus erat</li>
-                                <li><i class="fa fa-angle-right text-primary me-2"></i>Diam diam stet erat no est est</li>
-                            </ul>
+                            <p>${param.qualification}</p>
                         </div>
 
                         <div class="">
                             <h4 class="mb-4">Apply For The Job</h4>
-                            <form>
+                            <form action="/JobFinder/applyJob" method="get">
                                 <div class="row g-3">
                                     <div class="col-12 col-sm-6">
-                                        <input type="text" class="form-control" placeholder="Your Name">
+                                        <input type="text" class="form-control" placeholder="Your Name" name="name">
                                     </div>
                                     <div class="col-12 col-sm-6">
-                                        <input type="email" class="form-control" placeholder="Your Email">
+                                        <input type="email" class="form-control" placeholder="Your Email" name="email">
                                     </div>
                                     <div class="col-12 col-sm-6">
-                                        <input type="text" class="form-control" placeholder="Portfolio Website">
+                                        <input type="text" class="form-control" placeholder="Portfolio Website/facebook/linkedin" name="website">
                                     </div>
                                     <div class="col-12 col-sm-6">
-                                        <input type="file" class="form-control bg-white">
+                                        <input type="file" class="form-control bg-white" name="file">
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control bg-white" name="position" value="${param.title}" hidden>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <input type="text" class="form-control bg-white" name="company" value="${param.company}" hidden>
                                     </div>
                                     <div class="col-12">
                                         <textarea class="form-control" rows="5" placeholder="Coverletter"></textarea>
@@ -162,16 +170,15 @@
                     <div class="col-lg-4">
                         <div class="bg-light rounded p-5 mb-4 wow slideInUp" data-wow-delay="0.1s">
                             <h4 class="mb-4">Job Summery</h4>
-                            <p><i class="fa fa-angle-right text-primary me-2"></i>Published On: 01 Jan, 2045</p>
-                            <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy: 123 Position</p>
-                            <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature: Full Time</p>
-                            <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: $123 - $456</p>
-                            <p><i class="fa fa-angle-right text-primary me-2"></i>Location: New York, USA</p>
-                            <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Date Line: 01 Jan, 2045</p>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Published On: ${param.dateLine}</p>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature: ${param.type}</p>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: ${param.salary} Kyats</p>
+                            <p><i class="fa fa-angle-right text-primary me-2"></i>Location: ${param.location}</p>
+                            <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Date Line: ${param.dateLine}</p>
                         </div>
                         <div class="bg-light rounded p-5 wow slideInUp" data-wow-delay="0.1s">
                             <h4 class="mb-4">Company Detail</h4>
-                            <p class="m-0">Ipsum dolor ipsum accusam stet et et diam dolores, sed rebum sadipscing elitr vero dolores. Lorem dolore elitr justo et no gubergren sadipscing, ipsum et takimata aliquyam et rebum est ipsum lorem diam. Et lorem magna eirmod est et et sanctus et, kasd clita labore.</p>
+                            <p class="m-0">${param.company}</p>
                         </div>
                     </div>
                 </div>
@@ -250,15 +257,21 @@
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
-    <!-- JavaScript Libraries -->
+<spring:url value="/resources/script/wow/wow.min.js" var="wow" htmlEscape="true"/>
+<spring:url value="/resources/script/easing/easing.min.js" var="easing" htmlEscape="true"/>
+<spring:url value="/resources/script/waypoints/waypoints.min.js" var="waypoints" htmlEscape="true"/>
+<spring:url value="/resources/script/owlcarousel/owl.carousel.min.js" var="carouseljs" htmlEscape="true"/>
+
+    <!-- JavaScript scriptraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="${wow}"></script>
+    <script src="${easing}"></script>
+    <script src="${waypoints}"></script>
+    <script src="${carouseljs}"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <spring:url value="/resources/js/main.js" var="main" htmlEscape="true"/>
+    <script src="${main}"></script>
 </body>
 </html>
